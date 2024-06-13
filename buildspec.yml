@@ -8,6 +8,8 @@ phases:
     commands:
         # install npm
         - npm install
+        - npm install aws-rum-web
+
        
   build:
     commands:
