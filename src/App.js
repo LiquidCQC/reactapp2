@@ -6,11 +6,28 @@ import {
   Link,
   useLocation
 } from "react-router-dom";
-import logo from './logo.svg';
-import './App.css';
 import { AwsRum, AwsRumConfig } from 'aws-rum-web';
 
-// Components for routes
+export default function App() {
+  return (
+    <Router>
+      <div>
+        <p><Link to="/">Home</Link></p>
+        <p><Link to="/about">About</Link></p>
+        <p><Link to="/users">Users</Link></p>
+        <p><Link to="/welcome">Welcome</Link></p>
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/user/*" element={<User />} />
+          <Route path="/welcome" element={<Welcome />} />
+          <Route exact path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </Router>
+  )
+}
+
 function Home() {
   return <h2>Home</h2>;
 }
@@ -20,14 +37,13 @@ function About() {
 }
 
 function Users() {
-  return (
-    <div>
-      <h2>Users</h2>
-      <p><Link to="/user/1">User 1</Link></p>
-      <p><Link to="/user/2">User 2</Link></p>
-      <p><Link to="/user/3">User 3</Link></p>
-    </div>
-  );
+  return <div>
+    <h2>Users</h2>
+    <p><Link to="/user/1">User 1</Link></p>
+    <p><Link to="/user/2">User 2</Link></p>
+    <p><Link to="/user/3">User 3</Link></p>
+  </div>
+  ;
 }
 
 function User() {
@@ -38,45 +54,7 @@ function User() {
 
 function Welcome() {
   // deliberate error
-  // `this` is not defined, will throw an error
   return <h2>Welcome {this.subject.toUpperCase()}</h2>;
-}
-
-// Main App component
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Hello World =)
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        <nav>
-          <p><Link to="/">Home</Link></p>
-          <p><Link to="/about">About</Link></p>
-          <p><Link to="/users">Users</Link></p>
-          <p><Link to="/welcome">Welcome</Link></p>
-        </nav>
-        <Routes>
-          <Route path="/about" element={<About />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/user/*" element={<User />} />
-          <Route path="/welcome" element={<Welcome />} />
-          <Route exact path="/" element={<Home />} />
-        </Routes>
-      </div>
-    </Router>
-  );
 }
 
 // AWS RUM Configuration
