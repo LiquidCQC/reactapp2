@@ -8,7 +8,7 @@ phases:
     commands:
         # install npm
         - npm install
-        - npm install aws-rum-web
+        - npm install aws-rum-web react-router-dom
 
        
   build:
