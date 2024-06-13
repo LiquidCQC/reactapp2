@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { AwsRum } from 'aws-rum-web';
 
+let awsRum = null;
 try {
   const config = {
     sessionSampleRate: 1,
@@ -22,7 +23,7 @@ try {
   const APPLICATION_VERSION = '1.0.0';
   const APPLICATION_REGION = 'eu-west-3';
 
-  const awsRum = new AwsRum(
+  awsRum = new AwsRum(
     APPLICATION_ID,
     APPLICATION_VERSION,
     APPLICATION_REGION,
@@ -31,7 +32,6 @@ try {
 } catch (error) {
   // Ignore errors thrown during CloudWatch RUM web client initialization
 }
-
 export default function App() {
   return (
     <Router>
