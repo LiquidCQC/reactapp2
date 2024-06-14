@@ -10,7 +10,7 @@ import { AwsRum } from 'aws-rum-web';
 
 let awsRum = null;
 try {
-  const config = {
+  const config: AwsRumConfig = {
     sessionSampleRate: 1,
     identityPoolId: "eu-west-3:af8d455a-0128-414a-b04f-3d2cce2e8ff0",
     endpoint: "https://dataplane.rum.eu-west-3.amazonaws.com",
@@ -19,11 +19,11 @@ try {
     enableXRay: false
   };
 
-  const APPLICATION_ID = 'feabfc04-03d6-4c1c-b1ec-feccbad38a9f';
-  const APPLICATION_VERSION = '1.0.0';
-  const APPLICATION_REGION = 'eu-west-3';
+  const APPLICATION_ID: string = 'feabfc04-03d6-4c1c-b1ec-feccbad38a9f';
+  const APPLICATION_VERSION: string = '1.0.0';
+  const APPLICATION_REGION: string = 'eu-west-3';
 
-  awsRum = new AwsRum(
+  const awsRum: AwsRum = new AwsRum(
     APPLICATION_ID,
     APPLICATION_VERSION,
     APPLICATION_REGION,
