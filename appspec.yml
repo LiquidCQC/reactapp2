@@ -3,8 +3,8 @@ os: linux
 
 files:
   - source: /
-    destination: /home/ec2-user/server
-
+    destination: /etc/nginx/nginx.conf
+    
 permissions:
   - object: /
     pattern: "**"
