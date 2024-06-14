@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { AwsRum } from 'aws-rum-web';
+import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
 
 let awsRum = null;
 try {
