@@ -12,6 +12,4 @@ npm  install
 npm run build
 
 #move build into nginx
-sudo cp -r build  /usr/share/nginx/html
-cd ../../
-sudo mv build/* .
+mv build/* /usr/share/nginx/html
