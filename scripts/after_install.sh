@@ -1,8 +1,7 @@
 #!/bin/bash
 
 #_Change_Working_Directory
-cd /home/ec2-user/server
-
+cd /usr/share/nginx/html
 #_Remove_Unused_Code
 rm -rf node_modules
 rm -rf build
